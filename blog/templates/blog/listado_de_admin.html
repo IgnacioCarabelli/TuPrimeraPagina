@@ -1,0 +1,32 @@
+{% extends "blog/index.html" %}
+
+
+
+{% block titulo %}
+<h1>LISTADO DE ADMINISTRADORES<h1>
+{% endblock titulo %}
+
+{% block contenido %}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for a in administradores %}
+        <tr>
+            <th>{{ a.id}}</th>
+            <th>{{ a.nombre}}</th>
+            <th>{{ a.apellido}}</th>
+            <th>{{ a.email}}</th>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}
