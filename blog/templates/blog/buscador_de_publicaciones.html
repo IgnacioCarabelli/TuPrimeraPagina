@@ -1,0 +1,32 @@
+{% extends "blog/index.html" %}
+
+
+
+{% block titulo %}
+<h1>BUSCADOR DE PUBLICACIONES<h1>
+{% endblock titulo %}
+
+{% block contenido %}
+
+<form method="get">
+    <input type="text" name="q" placeholder="Buscar por título..." value="{{ query }}">
+    <button type="submit">Buscar</button>
+</form>
+
+<hr>
+
+{% if resultados %}
+    <ul>
+        {% for publicacion in resultados %}
+            <li>
+                <strong>{{ publicacion.titulo_de_publicacion }}</strong><br>
+                {{ publicacion.publicacion }}<br>
+                <em>{{ publicacion.fecha_de_publicacion }}</em>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No se encontraron resultados.</p>
+{% endif %}
+
+{% endblock contenido %}

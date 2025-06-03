@@ -14,4 +14,4 @@ class UsuarioForm(forms.Form):
 class PublicacionesForm(forms.Form):
     titulo_de_publicacion = forms.CharField(max_length=50, label="¿Cual sera el titutlo de la publicacion?", required=True)
     publicacion = forms.CharField(max_length=200, label="Escribi tu posteo", required=True)
-    fecha_de_publicacion = forms.CharField(label="¿Que dia es hoy?", required=True)
+    fecha_de_publicacion = forms.DateField(label="¿Qué día es hoy?", required=True, widget=forms.DateInput(attrs={'type': 'date'}))

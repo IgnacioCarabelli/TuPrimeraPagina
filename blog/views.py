@@ -64,3 +64,12 @@ def adminForm(request):
 def listadoDeAdministradores(request):
     administradores = Administrador.objects.all()
     return render(request, "blog/listado_de_admin.html", {"administradores":administradores})
+
+def buscar_publicaciones(request):
+    query = request.GET.get('q')
+    resultados = []
+
+    if query:
+        resultados = Publicaciones.objects.filter(titulo_de_publicacion__icontains=query)
+
+    return render(request, 'blog/buscador_de_publicaciones.html', {'resultados': resultados, 'query': query})
